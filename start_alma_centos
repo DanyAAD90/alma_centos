@@ -13,6 +13,14 @@ Orfeo Toolbox - ok
 PostGIS
 Docker
 
+----START------
+sudo dnf update
+sudo dnf upgrade
+sudo dnf install git -y
+mkdir git
+cd git
+git init
+git clone https://github.com/DanyAAD90/alma_centos.git
 ---------------
 neofetch:
 sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm https://dl.fedoraproject.org/pub/epel/epel-next-release-latest-9.noarch.rpm
