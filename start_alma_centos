@@ -1,0 +1,148 @@
+1. uruchomić almalinux minimal lokalnie na kvm (nie ma gui)
+2. postawić gui MATE x2go
+3. do postawienia:
+
+ESA SNAP - ok
+Jupyter Notebook - ok
+QGIS - ok
+Grass GIS - ok
+Python - ok
+R - ok
+GDAL - ok
+Orfeo Toolbox - ok
+PostGIS
+Docker
+
+---------------
+neofetch:
+sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm https://dl.fedoraproject.org/pub/epel/epel-next-release-latest-9.noarch.rpm
+
+sudo dnf install neofetch -y
+neofetch -v
+---------------
+XFCE x2go:
+dnf config-manager --set-enabled crb
+sudo dnf install x2goserver
+sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+sudo rpm -qi epel-release
+sudo dnf --enablerepo=epel group
+sudo dnf group list | grep -i xfce
+sudo dnf groupinstall "Xfce" "base-x"
+sudo echo "exec /usr/bin/xfce4-session" >> ~/.xinitrc
+sudo systemctl set-default graphical
+sudo reboot
+
+----ESA SNAP---------
+
+sudo dnf install epel-release -y
+sudo dnf install snapd wget tar vim -y
+sudo systemctl enable --now snapd.socket
+sudo systemctl start --now snapd.socket
+wget http://step.esa.int/downloads/6.0/installers/esa-snap_sentinel_unix_6_0.sh
+bash esa-snap_sentinel_unix_6_0.sh
+
+----Jupyter Notebook + python ---------
+
+sudo dnf install firefox python3 -y
+wget https://bootstrap.pypa.io/get-pip.py
+python3 ./get-pip.py
+python -m venv virtualvenv
+source virtualvenv/bin/activate
+python3 -m pip install --upgrade pip
+pip install notebook
+jupyter notebook
+
+----R----------------
+
+sudo dnf install postgresql-libs sqlite -y
+wget https://download1.rstudio.org/electron/rhel9/x86_64/rstudio-2023.09.1-494-x86_64.rpm
+sudo rpm -i rstudio-2023.09.1-494-x86_64.rpm
+sudo dnf install R -y
+R
+
+----QGIS---------
+#https://www.qgis.org/pl/site/
+
+#sudo dnf copr enable dani/qgis feora-38-x86_64
+#sudo dnf copr enable dani/qgis feora-37-x86_64
+#https://gis.stackexchange.com/questions/432194/installing-qgis-client-not-server-on-rhel-8
+
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+su
+bash Miniconda3-latest-Linux-x86_64.sh -bfp /miniconda
+/miniconda/condabin/conda update -n base -c defaults conda
+/miniconda/condabin/conda init bash
+conda config --set auto_activate_base false
+conda create --name qgis_env
+conda activate qgis_env
+conda install qgis matplotlib numpy -c conda-forge
+exit
+------- uruchomienie qgis ----------
+#path -> cd /miniconda/envs/qgis_env/bin/gqis
+conda activate qgis_env
+qgis
+
+----grass GIS--------------
+
+#https://src.fedoraproject.org/rpms/grass
+sudo dnf install python3-numpy python3-wxpython4
+sudo dnf install PDAL PDAL-libs geos grass-libs
+wget https://kojipkgs.fedoraproject.org//packages/grass/8.2.1/2.el9/x86_64/grass-8.2.1-2.el9.x86_64.rpm
+sudo rpm -i grass-8.2.1-2.el9.x86_64.rpm
+
+wget https://kojipkgs.fedoraproject.org//packages/grass/8.2.1/2.el9/x86_64/grass-gui-8.2.1-2.el9.x86_64.rpm
+sudo rpm -i grass-gui-8.2.1-2.el9.x86_64.rpm
+grass
+
+----GDAL------------
+
+sudo dnf install proj-devel -y
+wget http://download.osgeo.org/gdal/3.5.2/gdal-3.5.2.tar.gz
+tar zxvf gdal-3.5.2rc1.tar.gz
+cd gdal-3.5.2/
+mkdir build
+./configure --with-python3
+make #długoidzie
+make install
+
+gdal-config --version
+gdalinfo
+gdalwarp
+gdal_translate
+
+----Orfeo Toolbox-------
+
+#https://gitlab.orfeo-toolbox.org/orfeotoolbox/otb/-/issues/2364
+
+wget https://www.orfeo-toolbox.org/packages/archives/OTB/OTB-7.4.1-Linux64-glibc-2.27.run
+sudo chmod +x OTB-7.4.1-Linux64-glibc-2.27.run
+./OTB-7.4.1-Linux64-glibc-2.27.run
+cd /root/OTB-7.4.1-Linux64-glibc-2.27
+#source /root/OTB-7.4.1-Linux64-glibc-2.27/otbenv.profile
+#source ./otbenv.profile
+#echo "source /root/OTB-7.4.1-Linux64-glibc-2.27/otbenv.profile" >> ~/.profile
+
+./otbApplicationLauncherQt BandMath
+
+----PostGIS------------
+
+conda activate qgis_env
+conda install postgis -c conda-forge
+postgis
+
+----Docker----------
+
+sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+sudo dnf install -y docker-ce docker-ce-cli containerd.io
+
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo systemctl status docker
+docker run hello-world
+docker image list
+
+-------------------
+
+
+
+
