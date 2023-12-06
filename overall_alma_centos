@@ -10,8 +10,8 @@ Python - ok
 R - ok
 GDAL - ok
 Orfeo Toolbox - ok
-PostGIS
-Docker
+PostGIS - ok
+Docker - ok
 
 ----START------
 sudo dnf update
