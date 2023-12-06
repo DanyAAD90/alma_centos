@@ -8,3 +8,4 @@ sudo rpm -i grass-8.2.1-2.el9.x86_64.rpm
 wget https://kojipkgs.fedoraproject.org//packages/grass/8.2.1/2.el9/x86_64/grass-gui-8.2.1-2.el9.x86_64.rpm
 sudo rpm -i grass-gui-8.2.1-2.el9.x86_64.rpm
 grass
+#----komendami jest gui, ale z provisioningu go nie ma------------
