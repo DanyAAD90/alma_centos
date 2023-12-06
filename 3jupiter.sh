@@ -7,4 +7,4 @@ python -m venv virtualvenv
 source virtualvenv/bin/activate
 python3 -m pip install --upgrade pip
 pip install notebook
-jupyter notebook
+jupyter notebook --allow-root
