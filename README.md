@@ -2,17 +2,17 @@
 
 Spis wymaganych aplikacji porównujących funkcjonalność alma do centos:
 
-| Lp. | Aplikacja | dzialanie | provisionowanie |
-|-----|-----------|-----------|-----------------|
-| 0 | xfce | działa | tak |
-| 1 |neofetch | działa | tak |
-| 2 |ESA SNAP | działa | tak |
-| 3 |Jupyter Notebook | działa | tak |
-| 4 | R | działa | tak |
-| 5 | QGIS | działa | ? |
-| 6 | Grass GIS | działa | brak gui |
-| 7 | GDAL | działa | ? |
-| 8 | Orfeo Toolbox | działa | tak |
-| 9 | PostGIS | działa | nie |
-| 10 | Docker | działa | tak | 
+| Lp. | Aplikacja | dzialanie | provisionowanie | manualnie |
+|-----|-----------|-----------|-----------------|-----------|
+| 0 | xfce | działa | tak | tak |
+| 1 |neofetch | działa | tak | tak |
+| 2 |ESA SNAP | działa | tak | tak |
+| 3 |Jupyter Notebook | działa | tak | tak |
+| 4 | R | działa | tak | tak |
+| 5 | QGIS | działa | ? | tak |
+| 6 | Grass GIS | działa | brak gui | tak |
+| 7 | GDAL | działa | ? | tak |
+| 8 | Orfeo Toolbox | działa | tak | tak |
+| 9 | PostGIS | działa | nie | tak |
+| 10 | Docker | działa | tak | tak |
 
