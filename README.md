@@ -10,7 +10,7 @@ Spis wymaganych aplikacji porównujących funkcjonalność alma do centos:
 | 3 |Jupyter Notebook | działa | tak | tak |
 | 4 | R | działa | tak | tak |
 | 5 | QGIS | działa | tak | tak |
-| 6 | Grass GIS | działa | brak gui | tak |
+| 6 | Grass GIS | działa | tak | tak |
 | 7 | GDAL | działa | tak | tak |
 | 8 | Orfeo Toolbox | działa | tak | tak |
 | 9 | PostGIS | działa | recznie | tak |
