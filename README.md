@@ -13,6 +13,6 @@ Spis wymaganych aplikacji porównujących funkcjonalność alma do centos:
 | 6 | Grass GIS | działa | brak gui | tak |
 | 7 | GDAL | działa | ? | tak |
 | 8 | Orfeo Toolbox | działa | tak | tak |
-| 9 | PostGIS | działa | nie | tak |
+| 9 | PostGIS | działa | recznie | tak |
 | 10 | Docker | działa | tak | tak |
 
