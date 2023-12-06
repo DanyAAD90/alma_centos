@@ -1,4 +1,4 @@
-# alma_centos
+# Alma vs Centos
 
 Spis wymaganych aplikacji porównujących funkcjonalność alma do centos:
 
